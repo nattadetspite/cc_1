@@ -262,3 +262,25 @@ exports.eleventh = async () => {
   }
   lineReader.close();
 };
+
+exports.twelfth = async () => {
+  let factorialInput = 0;
+  while (true) {
+    factorialInput = await readInput("Enter Number: ");
+    if (factorialInput > 0) {
+      break;
+    }
+  }
+
+  let result = () => {
+    sum = 1;
+    while (true) {
+      sum *= factorialInput;
+      factorialInput -= 1;
+      if (factorialInput === 0) break;
+    }
+    return sum;
+  };
+  console.log("factorail result: ", result());
+  lineReader.close();
+};
