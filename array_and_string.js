@@ -19,7 +19,7 @@ const readInput = (question) => {
   });
 };
 
-exports.first = async () => {
+exports.arr_first = async () => {
   let input = await readInput("Enter Size: ");
   console.log(input);
   let matrix_size = input.split(" ");
@@ -52,7 +52,7 @@ exports.first = async () => {
   }
 };
 
-exports.seccond = async () => {
+exports.arr_seccond = async () => {
   let num_el = await readInput("Enter number of element: ");
   let num_str = await readInput("Input Number: ");
   let num_arr = num_str.split(" ").length > num_el ? console.error("Error!") : num_str.split(" ");
@@ -80,4 +80,86 @@ exports.seccond = async () => {
   } else {
     console.log("most approximate to zero: ", ans);
   }
+};
+
+exports.str_first = async () => {
+  let p1 = await readInput("Persion 1: ");
+  let p2 = await readInput("Persion 2: ");
+
+  let p1_arr = p1.split(" ");
+  let p2_arr = p2.split(" ");
+
+  if (p1_arr[1].length - p2_arr[1].length > 0) {
+    p1_arr[1] = p2_arr[1];
+  } else {
+    p2_arr[1] = p1_arr[1];
+  }
+  console.log("answer: ");
+  console.log(p1_arr.join(" "));
+  console.log(p2_arr.join(" "));
+};
+
+exports.str_seccond = async () => {
+  let inputText = await readInput("Enter Text: ");
+
+  let text_arr = inputText.split("");
+  let vowels = ["a", "e", "i", "o", "u"];
+  let not_vow = [];
+  let all_letters = {
+    Symbol: 0,
+  };
+  let vow_obj = {
+    a: 0,
+    e: 0,
+    i: 0,
+    o: 0,
+    u: 0,
+  };
+  let upper = 0;
+  let lower = 0;
+  text_arr.map((c) => {
+    if (!vowels.includes(c.toLowerCase())) {
+      not_vow = [...not_vow, c];
+    } else {
+      vow_obj[c.toLowerCase()] += 1;
+    }
+    if (all_letters[c] > 0 && !c.match(/[$-/:-?{-~!"^_`\[\]]/)) {
+      all_letters[c] += 1;
+    } else if (c.match(/[$-/:-?{-~!"^_`\[\]]/)) {
+      all_letters["Symbol"] += 1;
+    } else {
+      all_letters[c] = 1;
+    }
+    if (c === c.toLowerCase()) {
+      lower += 1;
+    } else {
+      upper += 1;
+    }
+  });
+  console.log(not_vow.reverse().join(""));
+  console.log(vow_obj);
+  console.log(all_letters);
+  upper > lower
+    ? console.log(text_arr.join("").toLowerCase())
+    : console.log(text_arr.join("").toUpperCase());
+};
+
+exports.str_last = async () => {
+  let inputText = await readInput("Enter Text: ");
+  let key = await readInput("Enter key character: ");
+  let replaceInput = await readInput("Enter replace character: ");
+  let result = inputText.split("").map((w) => {
+    if (w === w.toLowerCase()) {
+      if (key === w) {
+        return replaceInput.toLowerCase();
+      }
+      return w;
+    } else {
+      if (key === w) {
+        return replaceInput.toUpperCase();
+      }
+      return w;
+    }
+  });
+  console.log(result.join(""));
 };

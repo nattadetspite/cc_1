@@ -12,13 +12,18 @@ const main = () => {
   // loop.eight();
   // loop.ninth();
   // loop.tenth();
+
   // loop.eleventh();
   // loop.twelfth();
   // loop.thirdteen();
   // loop.fourteen();
 
-  // arr_str.first();
-  arr_str.seccond();
+  // arr_str.arr_first();
+  // arr_str.arr_seccond();
+
+  // arr_str.str_first();
+  // arr_str.str_seccond();
+  arr_str.str_last();
 };
 
 main();
