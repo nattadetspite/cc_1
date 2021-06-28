@@ -285,7 +285,7 @@ exports.twelfth = async () => {
   lineReader.close();
 };
 
-exports.thirdteen = async () => {
+exports.thirteen = async () => {
   let brickInput = 0;
   while (true) {
     brickInput = await readInput("Enter block: ");
@@ -308,5 +308,32 @@ exports.thirdteen = async () => {
     }
   }
   console.log(`Pyramid high ${levelBrick} level, Remain ${avail_bricks} Bricks`);
+  lineReader.close();
+};
+
+exports.fourteen = async () => {
+  let neg_buff = 0;
+  let odd = [];
+  let even = [];
+  while (true) {
+    let numInput = await readInput("Enter number: ");
+    if (Number(numInput) < 0) {
+      neg_buff += 1;
+    }
+    if (Number(numInput) % 2 === 0) {
+      even.push(Number(numInput));
+    } else {
+      odd.push(Number(numInput));
+    }
+    if (neg_buff >= 3) {
+      break;
+    }
+  }
+  console.log(odd, even);
+  let sum_odd = odd.length ? odd.reduce((a, b) => a + b) : 0;
+  let sum_even = even.length ? even.reduce((a, b) => a + b) : 0;
+  console.log("sum of odd number = ", sum_odd);
+  console.log("sum of even number = ", sum_even);
+
   lineReader.close();
 };

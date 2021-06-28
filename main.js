@@ -13,7 +13,8 @@ const main = () => {
   // loop.tenth();
   // loop.eleventh();
   // loop.twelfth();
-  loop.thirdteen();
+  // loop.thirdteen();
+  // loop.fourteen();
 };
 
 main();
