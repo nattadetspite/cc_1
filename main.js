@@ -17,7 +17,8 @@ const main = () => {
   // loop.thirdteen();
   // loop.fourteen();
 
-  arr_str.first();
+  // arr_str.first();
+  arr_str.seccond();
 };
 
 main();

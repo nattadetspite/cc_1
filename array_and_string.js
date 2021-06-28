@@ -51,3 +51,33 @@ exports.first = async () => {
     console.log(line);
   }
 };
+
+exports.seccond = async () => {
+  let num_el = await readInput("Enter number of element: ");
+  let num_str = await readInput("Input Number: ");
+  let num_arr = num_str.split(" ").length > num_el ? console.error("Error!") : num_str.split(" ");
+
+  let minus = await readInput("Minus: ");
+  for (let i = 0; i < num_el; i++) {
+    num_arr[i] = num_arr[i] - minus;
+  }
+  console.log(num_arr);
+
+  let min_zero = 99999;
+  let ans = 0;
+  let isError = false;
+  for (let i = 0; i < num_arr.length; i++) {
+    if (Math.abs(num_arr[i]) < min_zero) {
+      min_zero = Math.abs(num_arr[i]);
+      ans = num_arr[i];
+      isError = false;
+    } else if (Math.abs(num_arr[i]) === min_zero) {
+      isError = true;
+    }
+  }
+  if (isError) {
+    console.log("Error to find most approximate to zero");
+  } else {
+    console.log("most approximate to zero: ", ans);
+  }
+};
