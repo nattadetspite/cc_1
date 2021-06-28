@@ -1,15 +1,16 @@
 const readline = require("readline");
 
-const lineReader = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
 const readInput = (question) => {
+  const lineReader = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   return new Promise((resolve, reject) => {
     lineReader.question(question, (line) => {
       console.log(line);
       try {
         let number = Number(line);
+        lineReader.close();
         resolve(number);
       } catch (err) {
         console.log(err);
@@ -25,7 +26,6 @@ exports.first = async () => {
     input = await readInput("Enter Number: ");
   } while (input < 5 || input > 10);
   console.log("STOP !!");
-  lineReader.close();
 };
 
 exports.seccond = async () => {
@@ -34,7 +34,6 @@ exports.seccond = async () => {
     input = await readInput("Enter Number: ");
   }
   console.log("STOP !!");
-  lineReader.close();
 };
 
 exports.third = async () => {
@@ -42,7 +41,6 @@ exports.third = async () => {
   for (let i = 1; i < 13; i++) {
     console.log(`${input} x ${i} = ${input * i}`);
   }
-  lineReader.close();
 };
 
 exports.forth = async () => {
@@ -54,7 +52,6 @@ exports.forth = async () => {
       console.log(`${i} x ${j} = ${i * j}`);
     }
   }
-  lineReader.close();
 };
 
 exports.fifth = async () => {
@@ -66,7 +63,6 @@ exports.fifth = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 exports.sixth = async () => {
@@ -78,7 +74,6 @@ exports.sixth = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 /**
@@ -97,7 +92,6 @@ exports.seventh = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 exports.eight = async () => {
@@ -113,7 +107,6 @@ exports.eight = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 /**
@@ -141,7 +134,6 @@ exports.ninth = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 /**
@@ -192,7 +184,6 @@ exports.tenth = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 exports.eleventh = async () => {
@@ -260,7 +251,6 @@ exports.eleventh = async () => {
     }
     console.log(line.trim());
   }
-  lineReader.close();
 };
 
 exports.twelfth = async () => {
@@ -282,7 +272,6 @@ exports.twelfth = async () => {
     return sum;
   };
   console.log("factorail result: ", result());
-  lineReader.close();
 };
 
 exports.thirteen = async () => {
@@ -308,7 +297,6 @@ exports.thirteen = async () => {
     }
   }
   console.log(`Pyramid high ${levelBrick} level, Remain ${avail_bricks} Bricks`);
-  lineReader.close();
 };
 
 exports.fourteen = async () => {
@@ -334,6 +322,4 @@ exports.fourteen = async () => {
   let sum_even = even.length ? even.reduce((a, b) => a + b) : 0;
   console.log("sum of odd number = ", sum_odd);
   console.log("sum of even number = ", sum_even);
-
-  lineReader.close();
 };

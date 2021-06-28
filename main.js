@@ -16,6 +16,8 @@ const main = () => {
   // loop.twelfth();
   // loop.thirdteen();
   // loop.fourteen();
+
+  arr_str.first();
 };
 
 main();
