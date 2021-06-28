@@ -197,24 +197,65 @@ exports.tenth = async () => {
 
 exports.eleventh = async () => {
   let size = await readInput("Enter Size: ");
+  let col = size % 2 === 0 ? size - 1 : size;
   for (let i = 0; i < size; i++) {
     let line = "";
-    for (let j = 0; j < (size % 2 === 0 ? size - 1 : size); j++) {
+    for (let j = 0; j < col; j++) {
       if (i + 1 < size / 2) {
-        if (j < size / 2 - 1) {
-          // if() {
-
-          // };
-          line += "+ ";
-        } else if (j > size / 2) {
+        if (j < col / 2 - 1) {
+          if (Math.abs(j - Math.ceil(col / 2)) === i + 1) {
+            line += "* ";
+          } else {
+            line += "- ";
+          }
+        } else if (j >= Math.ceil(col / 2)) {
+          if (i - 1 === j - Math.ceil(col / 2)) {
+            line += "* ";
+          } else {
+            line += "- ";
+          }
+        } else {
+          if (i === 0) {
+            line += "* ";
+          } else {
+            line += "- ";
+          }
+        }
+      } else if (i > size / 2) {
+        if (j < Math.ceil(col / 2) - 1) {
+          // console.log(i, j, i - Math.ceil(size / 2), Math.abs(j - Math.ceil(col / 2)));
+          if (j - (size % 2 === 0 ? 0 : 1) === i - Math.ceil(size / 2)) {
+            line += "* ";
+          } else {
+            line += "- ";
+          }
+          // line += "0 ";
+        } else if (j >= Math.ceil(col / 2)) {
+          if (j > i - Math.ceil(col / 2)) {
+            if (
+              i - Math.ceil(size / 2) + j - Math.ceil(col / 2) + (size % 2 === 0 ? 0 : 1) ===
+              Math.ceil(col / 2) - 2
+            ) {
+              line += "* ";
+            } else {
+              line += "- ";
+            }
+          } else {
+            line += "- ";
+          }
+        } else {
+          if (i === size - 1) {
+            line += "* ";
+          } else {
+            line += "- ";
+          }
+        }
+      } else {
+        if (j === 0 || j === col - 1) {
           line += "* ";
         } else {
           line += "- ";
         }
-      } else if (i > size / 2) {
-        line += "x ";
-      } else {
-        line += "- ";
       }
     }
     console.log(line.trim());
