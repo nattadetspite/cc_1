@@ -194,3 +194,30 @@ exports.tenth = async () => {
   }
   lineReader.close();
 };
+
+exports.eleventh = async () => {
+  let size = await readInput("Enter Size: ");
+  for (let i = 0; i < size; i++) {
+    let line = "";
+    for (let j = 0; j < (size % 2 === 0 ? size - 1 : size); j++) {
+      if (i + 1 < size / 2) {
+        if (j < size / 2 - 1) {
+          // if() {
+
+          // };
+          line += "+ ";
+        } else if (j > size / 2) {
+          line += "* ";
+        } else {
+          line += "- ";
+        }
+      } else if (i > size / 2) {
+        line += "x ";
+      } else {
+        line += "- ";
+      }
+    }
+    console.log(line.trim());
+  }
+  lineReader.close();
+};
