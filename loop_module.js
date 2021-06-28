@@ -284,3 +284,29 @@ exports.twelfth = async () => {
   console.log("factorail result: ", result());
   lineReader.close();
 };
+
+exports.thirdteen = async () => {
+  let brickInput = 0;
+  while (true) {
+    brickInput = await readInput("Enter block: ");
+    if (brickInput > 0) {
+      break;
+    }
+  }
+
+  let avail_bricks = Number(brickInput);
+
+  let levelBrick = 0;
+  while (true) {
+    levelBrick += 1;
+    let brickuse = levelBrick ** 2;
+    if (avail_bricks - brickuse > 0) {
+      avail_bricks = avail_bricks - brickuse;
+    } else {
+      levelBrick -= 1;
+      break;
+    }
+  }
+  console.log(`Pyramid high ${levelBrick} level, Remain ${avail_bricks} Bricks`);
+  lineReader.close();
+};
