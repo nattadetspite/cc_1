@@ -1,4 +1,5 @@
 const loop = require("./loop_module");
+const arr_str = require("./array_and_string");
 
 const main = () => {
   // loop.first();

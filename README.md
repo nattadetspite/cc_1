@@ -1,15 +1,7 @@
-1. do…while until number in range 5-10
-   Enter Number : 17
-   Enter Number : -2
-   Enter Number : 4
-   Enter Number : 7
-   STOP!!
-2. using while then.
+# coding challenge
 
-3. print `input` x [1 ... 12]
+from Peachiia's sandbox
 
-4. print [2 ... `input_1`] x [1 ... `input_2`]
+just for fun
 
-5. print matrix `input` x `input`
-
-6. print matrix ox
+[questions](/CC_1-PS_1.3_rev201711.pdf)
